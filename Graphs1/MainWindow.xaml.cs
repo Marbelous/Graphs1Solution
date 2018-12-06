@@ -60,7 +60,7 @@ namespace Graphs1
                 Title = "Series 4",
                 Values = new ChartValues<double> { 5, 3, 2, 4 },
                 LineSmoothness = 0,
-                PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 22 -8 -6 z"),
+                PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 -20 22 -8 -6 z"),
                 PointGeometrySize = 50,
                 PointForeground = Brushes.Gray
             });

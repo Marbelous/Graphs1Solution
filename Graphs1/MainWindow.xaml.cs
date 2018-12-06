@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace Graphs1
 {
@@ -20,9 +22,30 @@ namespace Graphs1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public SeriesCollection SeriesCollection { get; set; }
+        public Func<double, string> YFormatter { get; set; }
+        public string[] Labels { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Series 1",
+                    Values = new ChartValues<double> {1, 5, 9, 15, 22}
+                },
+                new LineSeries
+                {
+                    Title = "Series 2",
+                    Values = new ChartValues<decimal> {1, 2, 3, 4, 5},
+                    PointGeometry = null
+                }
+            };
         }
+
     }
 }

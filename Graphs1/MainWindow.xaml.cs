@@ -30,7 +30,6 @@ namespace Graphs1
         {
             InitializeComponent();
 
-
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -43,9 +42,32 @@ namespace Graphs1
                     Title = "Series 2",
                     Values = new ChartValues<decimal> {1, 2, 3, 4, 5},
                     PointGeometry = null
+                },
+                new LineSeries
+                {
+                    Title = "Series 3",
+                    Values = new ChartValues<double> {4,2,7,2,7},
+                    PointGeometry = DefaultGeometries.Square,
+                    PointGeometrySize = 15
                 }
             };
-        }
 
+            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
+            YFormatter = value => value.ToString("C");
+
+            SeriesCollection.Add(new LineSeries
+            {
+                Title = "Series 4",
+                Values = new ChartValues<double> { 5, 3, 2, 4 },
+                LineSmoothness = 0,
+                PointGeometry = Geometry.Parse("m 25 70.36218 20 -28 22 -8 -6 z"),
+                PointGeometrySize = 50,
+                PointForeground = Brushes.Gray
+            });
+
+            SeriesCollection[3].Values.Add(5d);
+
+            DataContext = this;
+        }
     }
 }
